@@ -1,4 +1,3 @@
-
 package railwayreservation;
 
 import java.sql.Connection;
@@ -9,18 +8,17 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class MainFrame extends javax.swing.JFrame {
-        private String user = "";
-        private  String pswd = "";
+
+    private String user = "";
+    private String pswd = "";
     Statement st;
     Connection con = null;
     ResultSet rs = null;
     PreparedStatement pat = null;
 
-
     public MainFrame() {
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -139,11 +137,11 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Inavlid Login");
 
         }*/
-        
-        try{
-                Class.forName("oracle.jdbc.driver.OracleDriver");
-                con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCLE123","system","joshna");
-               /* String driverName="oracle.jdbc.driver.OracleDriver";
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCLE123", "system", "joshna");
+            /* String driverName="oracle.jdbc.driver.OracleDriver";
             Class.forName(driverName);
             String serverName="localhost";
             String serverPort="1521";
@@ -152,31 +150,28 @@ public class MainFrame extends javax.swing.JFrame {
             String username="system";
             String password="joshna";
             con=DriverManager.getConnection(url,username,password);*/
-            st=con.createStatement();
-                String sr = "Select * from login where userid = ? and password = ?";
-                pat = con.prepareStatement(sr);
-                pat.setString(1, userText.getText());
-                pat.setString(2, pswdText.getText());
-                rs = pat.executeQuery();
-                if(rs.next()){
-        //if (pswd.equals("john") && user.equals("john")) {
-            statusLabel.setText("Login successful!");
-            Frame1 f1 = new Frame1();
-            f1.setVisible(true);
-            this.setVisible(false);
+            st = con.createStatement();
+            String sr = "Select * from login where userid = ? and password = ?";
+            pat = con.prepareStatement(sr);
+            pat.setString(1, userText.getText());
+            pat.setString(2, pswdText.getText());
+            rs = pat.executeQuery();
+            if (rs.next()) {
+                //if (pswd.equals("john") && user.equals("john")) {
+                statusLabel.setText("Login successful!");
+                Frame1 f1 = new Frame1();
+                f1.setVisible(true);
+                this.setVisible(false);
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Inavlid Login");
+            } else {
+                JOptionPane.showMessageDialog(null, "Inavlid Login");
 
-        }
-        }
-        catch(Exception e)
-        {
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
-            
-    }//GEN-LAST:event_bLoginActionPerformed
 
+    }//GEN-LAST:event_bLoginActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
