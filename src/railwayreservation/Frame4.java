@@ -1,8 +1,18 @@
 package railwayreservation;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class Frame4 extends javax.swing.JFrame {
+
+    Statement st;
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pat = null;
 
     public Frame4() {
         initComponents();
@@ -16,9 +26,7 @@ public class Frame4 extends javax.swing.JFrame {
         tfName4 = new javax.swing.JTextField();
         lName4 = new javax.swing.JLabel();
         tfTicketNo4 = new javax.swing.JTextField();
-        lTrainNo4 = new javax.swing.JLabel();
         lTicketNo4 = new javax.swing.JLabel();
-        tfTrainNo4 = new javax.swing.JTextField();
         bCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -31,13 +39,8 @@ public class Frame4 extends javax.swing.JFrame {
 
         tfTicketNo4.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
 
-        lTrainNo4.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
-        lTrainNo4.setText("TRAIN NO");
-
         lTicketNo4.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
         lTicketNo4.setText("TICKET NO");
-
-        tfTrainNo4.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
 
         bCancel.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
         bCancel.setText("CANCEL");
@@ -55,19 +58,19 @@ public class Frame4 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lName4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lTrainNo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lTicketNo4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfName4)
-                            .addComponent(tfTrainNo4)
-                            .addComponent(tfTicketNo4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lTicketNo4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tfTicketNo4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lName4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(tfName4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,15 +79,11 @@ public class Frame4 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lName4)
                     .addComponent(tfName4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lTrainNo4)
-                    .addComponent(tfTrainNo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lTicketNo4)
-                    .addComponent(tfTicketNo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                    .addComponent(tfTicketNo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lTicketNo4))
+                .addGap(43, 43, 43)
                 .addComponent(bCancel)
                 .addContainerGap())
         );
@@ -93,31 +92,79 @@ public class Frame4 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
-        String name, trainNo, ticketNo;
-        name = lName4.getText();
-        trainNo = lTrainNo4.getText();
-        ticketNo = lTicketNo4.getText();
+        String name, ticketNo;
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@John-PC:1521:XE", "system", "john");
+            st = con.createStatement();
+
+//            String sr = "delete from book where ticketno = ?";
+//            pat=con.prepareStatement(sr);
+//            pat.setString(1,ticketNo);
+//            rs=pat.executeQuery();
+
+
+        name = tfName4.getText();
+        ticketNo = tfTicketNo4.getText();
+
+
+
+//FROM HERE
+            int z = 0;
+            int inttno = Integer.parseInt(ticketNo);
+            rs = st.executeQuery("Select * from book");
+            while (rs.next()) {
+                int tno = rs.getInt("ticketno");
+                if (tno == inttno) {
+                    String str = rs.getString("name");
+                    if (str.equals(name)) {
+                        z++;
+                        break;
+                    }
+                }
+            }
+            System.out.println("after checking avalibility ");
+            if (z > 0) {
+                int row = st.executeUpdate("DELETE from book where ticketno = " + inttno);
+                JOptionPane.showMessageDialog(null, "Ticket cancelled successfully");
+            } else {
+                JOptionPane.showMessageDialog(null, "Ticket not found");
+            }
+
+            //TO HERE
+//            
+//            if(rs.next())
+//            {
+//                    JOptionPane.showMessageDialog(null, "Ticket cancelled successfully");
+//            }
+//            else
+//                    {
+//                    JOptionPane.showMessageDialog(null, "Ticket not found");
+//                    }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         //IF PRESENT IN DB DELETE FROM DB ELSE WRITE CODE FOR TICKET NOT FOUND
-        JOptionPane.showMessageDialog(null, "Ticket cancelled successfully");
         lName4.setText("");
-        lTrainNo4.setText("");
         lTicketNo4.setText("");
         Frame1 f1 = new Frame1();
         f1.setVisible(true);
@@ -164,9 +211,7 @@ public class Frame4 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lName4;
     private javax.swing.JLabel lTicketNo4;
-    private javax.swing.JLabel lTrainNo4;
     private javax.swing.JTextField tfName4;
     private javax.swing.JTextField tfTicketNo4;
-    private javax.swing.JTextField tfTrainNo4;
     // End of variables declaration//GEN-END:variables
 }
