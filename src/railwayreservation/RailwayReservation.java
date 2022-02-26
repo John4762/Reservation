@@ -9,6 +9,7 @@ public class RailwayReservation {
         MainFrame mainFrame = new MainFrame();
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(MainFrame.EXIT_ON_CLOSE);
+        System.out.println("helo");
 
     }
 
