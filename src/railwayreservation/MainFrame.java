@@ -1,11 +1,21 @@
 
 package railwayreservation;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class MainFrame extends javax.swing.JFrame {
         private String user = "";
-    private String pswd = "";
+        private  String pswd = "";
+    Statement st;
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pat = null;
+
 
     public MainFrame() {
         initComponents();
@@ -115,7 +125,7 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
-        String ae = evt.getActionCommand();
+        /*String ae = evt.getActionCommand();
         user = userText.getText();
         pswd = pswdText.getText();
         
@@ -128,9 +138,43 @@ public class MainFrame extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Inavlid Login");
 
+        }*/
+        
+        try{
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+                con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCLE123","system","joshna");
+               /* String driverName="oracle.jdbc.driver.OracleDriver";
+            Class.forName(driverName);
+            String serverName="localhost";
+            String serverPort="1521";
+            String sid="orcl";
+            String url="jdbc:oracle:thin:@"+serverName+":"+serverPort+":"+sid;
+            String username="system";
+            String password="joshna";
+            con=DriverManager.getConnection(url,username,password);*/
+            st=con.createStatement();
+                String sr = "Select * from login where userid = ? and password = ?";
+                pat = con.prepareStatement(sr);
+                pat.setString(1, userText.getText());
+                pat.setString(2, pswdText.getText());
+                rs = pat.executeQuery();
+                if(rs.next()){
+        //if (pswd.equals("john") && user.equals("john")) {
+            statusLabel.setText("Login successful!");
+            Frame1 f1 = new Frame1();
+            f1.setVisible(true);
+            this.setVisible(false);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Inavlid Login");
+
         }
-        
-        
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+            
     }//GEN-LAST:event_bLoginActionPerformed
 
 
