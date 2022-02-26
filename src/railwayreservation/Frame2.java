@@ -265,27 +265,27 @@ else
                 pat.setString(11, "T002");
             }
             System.out.println("hi");
-            if(tno == 1){
-            String si = "select sno from traindet where train1 ='" +start+ "'";
-            String di = "select sno from traindet where train1 ='" +end+ "'";
-            ResultSet res = st.executeQuery(si);
-            res.next();
-            starti = res.getInt(1);
-            ResultSet rest = st.executeQuery(di);
-            rest.next();
-            desti = rest.getInt(1);
+            if (tno == 1) {
+                String si = "select sno from traindet where train1 ='" + start + "'";
+                String di = "select sno from traindet where train1 ='" + end + "'";
+                ResultSet res = st.executeQuery(si);
+                res.next();
+                starti = res.getInt(1);
+                ResultSet rest = st.executeQuery(di);
+                rest.next();
+                desti = rest.getInt(1);
             }
-            if(tno == 2){
-            String si = "select sno from traindet where train2 ='" +start+ "'";
-            String di = "select sno from traindet where train2 ='" +end+ "'";
-            ResultSet res = st.executeQuery(si);
-            res.next();
-            starti = res.getInt(1);
-            ResultSet rest = st.executeQuery(di);
-            rest.next();
-            desti = rest.getInt(1);
+            if (tno == 2) {
+                String si = "select sno from traindet where train2 ='" + start + "'";
+                String di = "select sno from traindet where train2 ='" + end + "'";
+                ResultSet res = st.executeQuery(si);
+                res.next();
+                starti = res.getInt(1);
+                ResultSet rest = st.executeQuery(di);
+                rest.next();
+                desti = rest.getInt(1);
             }
-            far = (desti-starti)*37;
+            far = (desti - starti) * 37;
             pat.setInt(9, far);
 
             rs = pat.executeQuery();
@@ -302,7 +302,6 @@ else
                 Frame1 f1 = new Frame1();
                 f1.setVisible(true);
             }
-            
 
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -141,6 +141,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCLE123", "system", "joshna");
+
             /* String driverName="oracle.jdbc.driver.OracleDriver";
             Class.forName(driverName);
             String serverName="localhost";
