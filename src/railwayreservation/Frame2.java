@@ -229,7 +229,7 @@ public class Frame2 extends javax.swing.JFrame {
             ticketno = random.nextInt(9999);
             pat.setInt(8, ticketno);
             pat.setString(10, route);
-            if (route.equals("Trivandrum-Kasargod")) {
+            if (route.equals("Trivandrum - Kasargod")) {
                 tno = 1;
                 pat.setString(11, "T001");
             } else {

@@ -25,6 +25,10 @@ public class Frame3 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel33 = new javax.swing.JPanel();
+        bViewDetails = new javax.swing.JButton();
+        labelTicketNo = new javax.swing.JLabel();
+        tfTicketNo = new javax.swing.JTextField();
         panel3 = new javax.swing.JPanel();
         lName = new javax.swing.JLabel();
         lTrainNo = new javax.swing.JLabel();
@@ -36,13 +40,23 @@ public class Frame3 extends javax.swing.JFrame {
         labelTrainNo = new javax.swing.JLabel();
         labelFare = new javax.swing.JLabel();
         labelEnd = new javax.swing.JLabel();
-        panel33 = new javax.swing.JPanel();
-        bViewDetails = new javax.swing.JButton();
-        labelTicketNo = new javax.swing.JLabel();
-        tfTicketNo = new javax.swing.JTextField();
+        bOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VIEW TICKET");
+
+        bViewDetails.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        bViewDetails.setText("VIEW DETAILS");
+        bViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bViewDetailsActionPerformed(evt);
+            }
+        });
+
+        labelTicketNo.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        labelTicketNo.setText("ENTER TICKET NO.");
+
+        tfTicketNo.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
 
         lName.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
 
@@ -119,33 +133,25 @@ public class Frame3 extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        bViewDetails.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        bViewDetails.setText("VIEW DETAILS");
-        bViewDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bViewDetailsActionPerformed(evt);
-            }
-        });
-
-        labelTicketNo.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelTicketNo.setText("ENTER TICKET NO.");
-
-        tfTicketNo.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-
         javax.swing.GroupLayout panel33Layout = new javax.swing.GroupLayout(panel33);
         panel33.setLayout(panel33Layout);
         panel33Layout.setHorizontalGroup(
             panel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel33Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(labelTicketNo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tfTicketNo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-            .addGroup(panel33Layout.createSequentialGroup()
-                .addGap(132, 132, 132)
+                .addGroup(panel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel33Layout.createSequentialGroup()
+                        .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panel33Layout.createSequentialGroup()
+                        .addComponent(labelTicketNo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addComponent(tfTicketNo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel33Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(143, 143, 143))
         );
         panel33Layout.setVerticalGroup(
             panel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,32 +160,42 @@ public class Frame3 extends javax.swing.JFrame {
                 .addGroup(panel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfTicketNo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelTicketNo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addComponent(bViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        bOk.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
+        bOk.setText("OK");
+        bOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOkActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(panel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(181, 181, 181)
+                .addComponent(bOk, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(panel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(53, 53, 53)
-                .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(15, 15, 15)
+                .addComponent(panel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bOk)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -209,18 +225,22 @@ public class Frame3 extends javax.swing.JFrame {
 
             } else {
                 JOptionPane.showMessageDialog(null, "INVALID TICKET");
-                Frame1 f1 = new Frame1();
-                this.setVisible(false);
-                f1.setVisible(true);
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "INVALID TICKET");
             e.printStackTrace();
+
         }
 
 
     }//GEN-LAST:event_bViewDetailsActionPerformed
+
+    private void bOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOkActionPerformed
+        Frame1 f1 = new Frame1();
+        this.setVisible(false);
+        f1.setVisible(true);
+    }//GEN-LAST:event_bOkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,6 +278,7 @@ public class Frame3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bOk;
     private javax.swing.JButton bViewDetails;
     private javax.swing.JLabel lEnd;
     private javax.swing.JLabel lFare;
