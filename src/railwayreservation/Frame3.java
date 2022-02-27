@@ -2,7 +2,6 @@ package railwayreservation;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -191,7 +190,6 @@ public class Frame3 extends javax.swing.JFrame {
         Statement st;
         Connection con = null;
         ResultSet rs = null;
-        PreparedStatement pat = null;
 
         try {
             ticketNo = tfTicketNo.getText();

@@ -124,20 +124,6 @@ public class Frame0 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
-        /*String ae = evt.getActionCommand();
-        user = userText.getText();
-        pswd = pswdText.getText();
-        
-          if (pswd.equals("john") && user.equals("john")) {
-            statusLabel.setText("Login successful!");
-            Frame1 f1 = new Frame1();
-            f1.setVisible(true);
-            this.setVisible(false);
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Inavlid Login");
-
-        }*/
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -159,7 +145,6 @@ public class Frame0 extends javax.swing.JFrame {
             pat.setString(2, pswdText.getText());
             rs = pat.executeQuery();
             if (rs.next()) {
-                //if (pswd.equals("john") && user.equals("john")) {
                 statusLabel.setText("Login successful!");
                 Frame1 f1 = new Frame1();
                 f1.setVisible(true);

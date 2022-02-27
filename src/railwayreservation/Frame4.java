@@ -2,7 +2,6 @@ package railwayreservation;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -12,7 +11,7 @@ public class Frame4 extends javax.swing.JFrame {
     Statement st;
     Connection con = null;
     ResultSet rs = null;
-    PreparedStatement pat = null;
+    ResultSet res = null;
 
     public Frame4() {
         initComponents();
@@ -110,29 +109,24 @@ public class Frame4 extends javax.swing.JFrame {
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
         String name, ticketNo;
+        String str = "";
+        int tno = 0;
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@John-PC:1521:XE", "system", "john");
             st = con.createStatement();
 
-//            String sr = "delete from book where ticketno = ?";
-//            pat=con.prepareStatement(sr);
-//            pat.setString(1,ticketNo);
-//            rs=pat.executeQuery();
-
-
-        name = tfName4.getText();
-        ticketNo = tfTicketNo4.getText();
-
+            name = tfName4.getText();
+            ticketNo = tfTicketNo4.getText();
 
             int z = 0;
             int inttno = Integer.parseInt(ticketNo);
             rs = st.executeQuery("Select * from book");
             while (rs.next()) {
-                int tno = rs.getInt("ticketno");
+                tno = rs.getInt("ticketno");
                 if (tno == inttno) {
-                    String str = rs.getString("name");
+                    str = rs.getString("name");
                     if (str.equals(name)) {
                         z++;
                         break;
@@ -141,19 +135,17 @@ public class Frame4 extends javax.swing.JFrame {
             }
 
             if (z > 0) {
-                
-                
-               st.executeUpdate("DELETE from book where ticketno = " + inttno);
+                String stmt = "Insert into cancellation (name,ticketno) values('" + str + "'," + tno + ")";
+                res = st.executeQuery(stmt);
+                st.executeUpdate("DELETE from book where ticketno = " + inttno);
                 JOptionPane.showMessageDialog(null, "Ticket cancelled successfully");
             } else {
                 JOptionPane.showMessageDialog(null, "Ticket not found");
             }
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         lName4.setText("");
         lTicketNo4.setText("");

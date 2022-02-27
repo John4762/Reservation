@@ -6,8 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Random;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 public class Frame2 extends javax.swing.JFrame {
@@ -214,33 +213,6 @@ public class Frame2 extends javax.swing.JFrame {
         String route;
         route = cbRoute.getSelectedItem().toString();
 
-//do dbms function instead of normal stuff here
-//add all these to database and book ticket
-//this can be used as an if option
-/*if(name.equals("")||age.equals("")||phno.equals("")||start.equals("")||end.equals("")||city.equals("")||state.equals("")){
-JOptionPane.showMessageDialog(null, "Please fill all fields " );
-
-}
-
-///THERE IS A PROBLEM HERE WHICH MAKES YOU SHOW THE OPTION PANE SAYING  
-//FILL IN ALL FIELDS, AFTER YOU DONT INPUT ALL FIELDS THE FIRST TIME
-else
-{
-         */
- /* ticketno = random.nextInt(9999);
-        JOptionPane.showMessageDialog(null, "Ticket booked successfully\nYour TICKET NUMBER is " + ticketno);
-        this.setVisible(false);
-        Frame1 f1 = new Frame1();
-        f1.setVisible(true);*/
-//}
-
-        /* tfName.setText("");
-        tfAge.setText("");
-        tfPhone.setText("");
-        tfStart.setText("");
-        tfEnd.setText("");
-        tfCity.setText("");
-        tfState.setText("");*/
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@John-PC:1521:XE", "system", "john");
