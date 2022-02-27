@@ -117,7 +117,7 @@ public class Frame1 extends javax.swing.JFrame {
 
     private void bExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExit1ActionPerformed
         this.dispose();
-        setDefaultCloseOperation(Frame1.EXIT_ON_CLOSE);
+        System.exit(0);
     }//GEN-LAST:event_bExit1ActionPerformed
 
     public static void main(String args[]) {
