@@ -243,7 +243,7 @@ else
         tfState.setText("");*/
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCLE123", "system", "joshna");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@John-PC:1521:XE", "system", "john");
             st = con.createStatement();
             String sr = "insert into book(name, age, phno, starting, ending, city, state, ticketno, fare, route, traino) values(?,?,?,?,?,?,?,?,?,?,?)";
             pat = con.prepareStatement(sr);

@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-public class MainFrame extends javax.swing.JFrame {
+public class Frame0 extends javax.swing.JFrame {
 
     private String user = "";
     private String pswd = "";
@@ -16,7 +16,7 @@ public class MainFrame extends javax.swing.JFrame {
     ResultSet rs = null;
     PreparedStatement pat = null;
 
-    public MainFrame() {
+    public Frame0() {
         initComponents();
     }
 
@@ -141,7 +141,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCLE123", "system", "joshna");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@John-PC:1521:XE", "system", "john");
 
             /* String driverName="oracle.jdbc.driver.OracleDriver";
             Class.forName(driverName);
@@ -189,20 +189,21 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame0.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame0.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame0.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame0.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                new Frame0().setVisible(true);
             }
         });
     }

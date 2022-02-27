@@ -126,8 +126,6 @@ public class Frame4 extends javax.swing.JFrame {
         ticketNo = tfTicketNo4.getText();
 
 
-
-//FROM HERE
             int z = 0;
             int inttno = Integer.parseInt(ticketNo);
             rs = st.executeQuery("Select * from book");
@@ -141,29 +139,22 @@ public class Frame4 extends javax.swing.JFrame {
                     }
                 }
             }
-            System.out.println("after checking avalibility ");
+
             if (z > 0) {
-                int row = st.executeUpdate("DELETE from book where ticketno = " + inttno);
+                
+                
+               st.executeUpdate("DELETE from book where ticketno = " + inttno);
                 JOptionPane.showMessageDialog(null, "Ticket cancelled successfully");
             } else {
                 JOptionPane.showMessageDialog(null, "Ticket not found");
             }
 
-            //TO HERE
-//            
-//            if(rs.next())
-//            {
-//                    JOptionPane.showMessageDialog(null, "Ticket cancelled successfully");
-//            }
-//            else
-//                    {
-//                    JOptionPane.showMessageDialog(null, "Ticket not found");
-//                    }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        //IF PRESENT IN DB DELETE FROM DB ELSE WRITE CODE FOR TICKET NOT FOUND
+
         lName4.setText("");
         lTicketNo4.setText("");
         Frame1 f1 = new Frame1();

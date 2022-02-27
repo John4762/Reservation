@@ -4,9 +4,9 @@ public class RailwayReservation {
 
     public static void main(String[] args) {
 
-        MainFrame mainFrame = new MainFrame();
+        Frame0 mainFrame = new Frame0();
         mainFrame.setVisible(true);
-        mainFrame.setDefaultCloseOperation(MainFrame.EXIT_ON_CLOSE);
+        mainFrame.setDefaultCloseOperation(Frame0.EXIT_ON_CLOSE);
        
 
     }
