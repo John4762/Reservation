@@ -210,7 +210,7 @@ public class Frame2 extends javax.swing.JFrame {
         state = tfState.getText();
         int tno = 0;
         int far, starti = 0, desti = 0;
-        int a1=0,a2=0;
+        int a1 = 0, a2 = 0;
         String route;
         route = cbRoute.getSelectedItem().toString();
 
@@ -243,13 +243,11 @@ public class Frame2 extends javax.swing.JFrame {
                 String di = "select sno from traindet where train1 ='" + end + "'";
                 String x1 = "select availableseats from reservation where trainno = 'T001'";
                 ResultSet rSet = st.executeQuery(x1);
-                if(rSet.next()){
-                 a1 = rSet.getInt(1);
+                rSet.next();
+                a1 = rSet.getInt(1);
 
-                    System.out.println("SEATS ARE AVAILABLE!!!!");
-                                System.out.println("The number of available seats for Train 1 is " + a1);
-                                
-                }
+                System.out.println("SEATS ARE AVAILABLE!!!!");
+                System.out.println("The number of available seats for Train 1 is " + a1);
 
                 ResultSet res = st.executeQuery(si);
                 res.next();
@@ -263,15 +261,13 @@ public class Frame2 extends javax.swing.JFrame {
                 String di = "select sno from traindet where train2 ='" + end + "'";
                 String x2 = "select availableseats from reservation where trainno = 'T002'";
                 ResultSet rSet = st.executeQuery(x2);
-                
+
                 rSet.next();
                 a2 = rSet.getInt(1);
-                                    System.out.println("SEATS ARE AVAILABLE!!!!");
+                System.out.println("SEATS ARE AVAILABLE!!!!");
 
-                                System.out.println("The number of available seats for Train 2 is " + a2);
-                
+                System.out.println("The number of available seats for Train 2 is " + a2);
 
-                
                 ResultSet res = st.executeQuery(si);
                 res.next();
                 starti = res.getInt(1);
